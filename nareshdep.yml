@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: naresh-deploy
+ labels:
+   app: naresh
+spec:
+  replicas: 2
+  selector:
+   matchLabels:
+     app: naresh
+  template:
+   metadata:
+     labels:
+       app: naresh
+   spec:
+    containers:
+    - name: naresh-container
+      image: nginx:1.14.2
+      ports:
+      - containerPort: 80
+
